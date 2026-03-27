@@ -481,44 +481,44 @@
             <h3>Tu marca asociada al ALTO rendimiento</h3>
         </div>
         
-        <div class="piloto-grid" style="max-width: 1200px; margin: 0 auto 60px;">
+        <div class="piloto-grid" style="width: 95%; max-width: 1400px; margin: 0 auto 60px;">
             
-            <div class="piloto-card">
-                <div class="piloto-avatar" style="font-size: 3rem; display: flex; align-items: center; justify-content: center;">🥉</div>
-                <h3 class="piloto-name">CAMPEONATO NACIONAL</h3>
-                <p class="piloto-dorsal" style="color: var(--neon); font-size: 1.5rem; font-weight: 700;">€2,000 - €4,000</p>
-                <ul class="piloto-palmares-mini">
+            <div class="piloto-card" style="padding: 50px 30px;">
+                <div class="piloto-avatar" style="font-size: 4rem; width: 120px; height: 120px; display: flex; align-items: center; justify-content: center;">🥉</div>
+                <h3 class="piloto-name" style="font-size: 1.4rem;">CAMPEONATO NACIONAL</h3>
+                <p class="piloto-dorsal" style="color: var(--neon); font-size: 1.8rem; font-weight: 700;">€2,000 - €4,000</p>
+                <ul class="piloto-palmares-mini" style="font-size: 0.9rem;">
                     <li>• Logo en web del piloto</li>
                     <li>• 2 posts dedicados RRSS</li>
                     <li>• Mention en contenido semanal</li>
                 </ul>
-                <a href="#contacto" class="piloto-btn" onclick="event.stopPropagation();">Seleccionar</a>
+                <a href="#contacto?campeonato=Nacional" class="piloto-btn seleccionar-patrocinio" data-campeonato="Campeonato Nacional" onclick="event.stopPropagation(); seleccionarPatrocinio('Campeonato Nacional', '€2,000 - €4,000');">Seleccionar</a>
             </div>
 
-            <div class="piloto-card" style="border-color: var(--neon); box-shadow: 0 0 40px rgba(0, 212, 255, 0.2); background: rgba(0, 212, 255, 0.05);">
-                <div class="piloto-avatar" style="font-size: 3rem; display: flex; align-items: center; justify-content: center;">🥈</div>
-                <h3 class="piloto-name">CAMPEONATO EUROPEO</h3>
-                <p class="piloto-dorsal" style="color: var(--neon); font-size: 1.5rem; font-weight: 700;">€5,000 - €9,000</p>
-                <ul class="piloto-palmares-mini">
+            <div class="piloto-card" style="border-color: var(--neon); box-shadow: 0 0 40px rgba(0, 212, 255, 0.2); background: rgba(0, 212, 255, 0.05); padding: 50px 30px;">
+                <div class="piloto-avatar" style="font-size: 4rem; width: 120px; height: 120px; display: flex; align-items: center; justify-content: center;">🥈</div>
+                <h3 class="piloto-name" style="font-size: 1.4rem;">CAMPEONATO EUROPEO</h3>
+                <p class="piloto-dorsal" style="color: var(--neon); font-size: 1.8rem; font-weight: 700;">€5,000 - €9,000</p>
+                <ul class="piloto-palmares-mini" style="font-size: 0.9rem;">
                     <li>• Logo en equipamiento</li>
                     <li>• 6 posts + 1 vídeo pro</li>
                     <li>• Invitación a 2 eventos</li>
                     <li>• Incluye Development</li>
                 </ul>
-                <a href="#contacto" class="piloto-btn" onclick="event.stopPropagation();" style="background: var(--neon); color: var(--black);">Más Popular</a>
+                <a href="#contacto?campeonato=Europeo" class="piloto-btn seleccionar-patrocinio" data-campeonato="Campeonato Europeo" onclick="event.stopPropagation(); seleccionarPatrocinio('Campeonato Europeo', '€5,000 - €9,000');" style="background: var(--neon); color: var(--black);">Más Popular</a>
             </div>
 
-            <div class="piloto-card">
-                <div class="piloto-avatar" style="font-size: 3rem; display: flex; align-items: center; justify-content: center;">🥇</div>
-                <h3 class="piloto-name">CAMPEONATO MUNDIAL</h3>
-                <p class="piloto-dorsal" style="color: var(--neon); font-size: 1.5rem; font-weight: 700;">€10,000 - €15,000</p>
-                <ul class="piloto-palmares-mini">
+            <div class="piloto-card" style="padding: 50px 30px;">
+                <div class="piloto-avatar" style="font-size: 4rem; width: 120px; height: 120px; display: flex; align-items: center; justify-content: center;">🥇</div>
+                <h3 class="piloto-name" style="font-size: 1.4rem;">CAMPEONATO MUNDIAL</h3>
+                <p class="piloto-dorsal" style="color: var(--neon); font-size: 1.8rem; font-weight: 700;">€10,000 - €15,000</p>
+                <ul class="piloto-palmares-mini" style="font-size: 0.9rem;">
                     <li>• Logo principal en moto</li>
                     <li>• 12 posts + 3 reels pro</li>
                     <li>• Hospitality 3 circuitos</li>
                     <li>• Incluye todos los beneficios</li>
                 </ul>
-                <a href="#contacto" class="piloto-btn" onclick="event.stopPropagation();">Seleccionar</a>
+                <a href="#contacto?campeonato=Mundial" class="piloto-btn seleccionar-patrocinio" data-campeonato="Campeonato Mundial" onclick="event.stopPropagation(); seleccionarPatrocinio('Campeonato Mundial', '€10,000 - €15,000');">Seleccionar</a>
             </div>
 
         </div>
@@ -547,12 +547,43 @@
         
         <div style="text-align: center; margin-top: 40px;">
         </div>
-    </section>                <div class="form-group"><label for="nombre">Nombre</label><input type="text" id="nombre" name="nombre" placeholder="Tu nombre" required></div>
-                <div class="form-group"><label for="email">Email</label><input type="email" id="email" name="email" placeholder="tu@email.com" required></div>
-                <div class="form-group"><label for="empresa">Empresa</label><input type="text" id="empresa" name="empresa" placeholder="Nombre de empresa"></div>
-                <div class="form-group"><label for="telefono">Teléfono</label><input type="tel" id="telefono" name="telefono" placeholder="+34 600 000 000"></div>
-                <div class="form-group"><label for="mensaje">Mensaje</label><textarea id="mensaje" name="mensaje" placeholder="Cuéntanos tu propuesta..." required></textarea></div>
+    </section>
+
+    <section class="contacto" id="contacto" style="padding: 100px 50px; background: var(--black);">
+        <h2 class="section-title">CONTACTO <span>ELITE JSR</span></h2>
+        <p class="section-subtitle">HABLEMOS DE TU PRÓXIMO PATROCINIO</p>
+        
+        <div style="max-width: 600px; margin: 0 auto;">
+            <form class="contact-form" action="mailto:info@elitejsr.com" method="post" enctype="text/plain">
+                <input type="hidden" id="campeonato-seleccionado" name="campeonato" value="">
+                
+                <div class="form-group">
+                    <label for="nombre">Nombre</label>
+                    <input type="text" id="nombre" name="nombre" placeholder="Tu nombre" required>
+                </div>
+                
+                <div class="form-group">
+                    <label for="email">Email</label>
+                    <input type="email" id="email" name="email" placeholder="tu@email.com" required>
+                </div>
+                
+                <div class="form-group">
+                    <label for="empresa">Empresa</label>
+                    <input type="text" id="empresa" name="empresa" placeholder="Nombre de empresa">
+                </div>
+                
+                <div class="form-group">
+                    <label for="telefono">Teléfono</label>
+                    <input type="tel" id="telefono" name="telefono" placeholder="+34 600 000 000">
+                </div>
+                
+                <div class="form-group">
+                    <label for="mensaje">Mensaje</label>
+                    <textarea id="mensaje" name="mensaje" rows="5" placeholder="Cuéntanos tu propuesta..." required></textarea>
+                </div>
+                
                 <button type="submit" class="submit-btn">Enviar Mensaje</button>
+            
             </form>
         </div>
     </section>
@@ -564,6 +595,20 @@
         function closeModal(piloto) { document.getElementById('modal-' + piloto).classList.remove('active'); document.body.style.overflow = 'auto'; }
         document.querySelectorAll('a[href^="#"]').forEach(anchor => { anchor.addEventListener('click', function (e) { e.preventDefault(); document.querySelector(this.getAttribute('href')).scrollIntoView({ behavior: 'smooth' }); }); });
         document.addEventListener('keydown', function(e) { if (e.key === 'Escape') { document.querySelectorAll('.modal').forEach(modal => { modal.classList.remove('active'); }); document.body.style.overflow = 'auto'; } });
+        
+        // Función para seleccionar patrocinio
+        function seleccionarPatrocinio(campeonato, precio) {
+            const mensaje = document.getElementById('mensaje');
+            const campeonatoInput = document.getElementById('campeonato-seleccionado');
+            
+            if (mensaje) {
+                mensaje.value = `Hola, estoy interesado en patrocinar el ${campeonato} (${precio}).\n\nPor favor, contacten conmigo para más detalles.`;
+            }
+            
+            if (campeonatoInput) {
+                campeonatoInput.value = campeonato;
+            }
+        }
     </script>
 </body>
 </html>
