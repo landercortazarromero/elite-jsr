@@ -606,14 +606,30 @@
         function seleccionarPatrocinio(campeonato, precio) {
             const mensaje = document.getElementById('mensaje');
             const campeonatoInput = document.getElementById('campeonato-seleccionado');
+            const nombreInput = document.getElementById('nombre');
+            const contactoSection = document.getElementById('contacto');
             
+            // Rellenar mensaje
             if (mensaje) {
                 mensaje.value = `Hola, estoy interesado en patrocinar el ${campeonato} (${precio}).\n\nPor favor, contacten conmigo para más detalles.`;
             }
             
+            // Guardar campeonato seleccionado
             if (campeonatoInput) {
                 campeonatoInput.value = campeonato;
             }
+            
+            // Scroll suave hasta contacto
+            if (contactoSection) {
+                contactoSection.scrollIntoView({ behavior: 'smooth', block: 'start' });
+            }
+            
+            // Focalizar campo nombre después del scroll (pequeño delay para que termine el scroll)
+            setTimeout(() => {
+                if (nombreInput) {
+                    nombreInput.focus();
+                }
+            }, 800);
         }
     </script>
 </body>
