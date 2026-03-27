@@ -47,9 +47,15 @@
         .section-subtitle { text-align: center; color: var(--gray); font-size: 1.1rem; margin-bottom: 60px; letter-spacing: 3px; text-transform: uppercase; }
         
         .pilotos { background: var(--black); }
-        .piloto-grid { display: grid; grid-template-columns: repeat(5, 1fr); gap: 25px; max-width: 1400px; margin: 0 auto; }
+        .piloto-grid, .patrocinio-grid { display: grid; grid-template-columns: repeat(5, 1fr); gap: 25px; max-width: 1400px; margin: 0 auto; }
         .piloto-card { background: rgba(0, 212, 255, 0.03); border: 1px solid rgba(0, 212, 255, 0.2); border-radius: 20px; padding: 35px 20px; text-align: center; transition: all 0.4s; cursor: pointer; position: relative; }
         .piloto-card:hover { transform: translateY(-15px); border-color: var(--neon); box-shadow: 0 0 40px rgba(0, 212, 255, 0.3); background: rgba(0, 212, 255, 0.08); }
+        .patrocinio-grid { display: grid; grid-template-columns: repeat(3, 1fr) !important; gap: 30px; width: 100%; margin: 0 auto; }
+        .patrocinio-grid .piloto-card { padding: 60px 40px; min-height: 500px; width: 100%; max-width: none; }
+        .patrocinio-grid .piloto-avatar { font-size: 5rem !important; width: 140px !important; height: 140px !important; }
+        .patrocinio-grid .piloto-name { font-size: 1.6rem !important; }
+        .patrocinio-grid .piloto-dorsal { font-size: 2rem !important; }
+        .patrocinio-grid .piloto-palmares-mini { font-size: 1rem !important; line-height: 2 !important; }
         .piloto-avatar { width: 100px; height: 100px; border-radius: 50%; margin: 0 auto 20px; display: flex; align-items: center; justify-content: center; font-family: 'Orbitron', sans-serif; font-size: 2rem; font-weight: 900; color: var(--light); border: 3px solid var(--neon); overflow: hidden; box-shadow: 0 0 20px rgba(0, 212, 255, 0.3); }
         .piloto-avatar img { width: 100%; height: 100%; object-fit: cover; }
         .piloto-name { font-family: 'Orbitron', sans-serif; font-size: 1.2rem; margin-bottom: 8px; color: var(--light); }
@@ -116,8 +122,8 @@
         footer { padding: 40px; text-align: center; background: var(--black); border-top: 1px solid rgba(0, 212, 255, 0.2); }
         footer p { color: var(--gray); font-size: 0.9rem; }
         
-        @media (max-width: 1200px) { .piloto-grid { grid-template-columns: repeat(3, 1fr); } .stats { grid-template-columns: repeat(3, 1fr); } .tiers-grid { grid-template-columns: 1fr; max-width: 400px; } }
-        @media (max-width: 768px) { header { padding: 15px 20px; flex-direction: column; gap: 15px; } nav ul { gap: 20px; } .hero h1 { font-size: 2.5rem; } .piloto-grid { grid-template-columns: 1fr; } .stats { grid-template-columns: repeat(2, 1fr); } .contact-grid { grid-template-columns: 1fr; } .dossier-header { grid-template-columns: 1fr; text-align: center; } .dossier-stats { justify-content: center; } .modal-content { padding: 30px 20px; } .dossier-cta { flex-direction: column; } }
+        @media (max-width: 1200px) { .piloto-grid, .patrocinio-grid { grid-template-columns: repeat(3, 1fr); } .stats { grid-template-columns: repeat(3, 1fr); } .tiers-grid { grid-template-columns: 1fr; max-width: 400px; } }
+        @media (max-width: 768px) { header { padding: 15px 20px; flex-direction: column; gap: 15px; } nav ul { gap: 20px; } .hero h1 { font-size: 2.5rem; } .piloto-grid, .patrocinio-grid { grid-template-columns: 1fr; } .stats { grid-template-columns: repeat(2, 1fr); } .contact-grid { grid-template-columns: 1fr; } .dossier-header { grid-template-columns: 1fr; text-align: center; } .dossier-stats { justify-content: center; } .modal-content { padding: 30px 20px; } .dossier-cta { flex-direction: column; } }
     </style>
 </head>
 <body>
@@ -481,9 +487,9 @@
             <h3>Tu marca asociada al ALTO rendimiento</h3>
         </div>
         
-        <div class="piloto-grid" style="width: 100%; margin: 0 auto 60px; padding: 0 20px; box-sizing: border-box;">
+        <div class="patrocinio-grid" style="width: 100%; margin: 0 auto 60px; padding: 0 20px; box-sizing: border-box;">
             
-            <div class="piloto-card" style="padding: 60px 40px; min-height: 500px;">
+            <div class="piloto-card" style="padding: 60px 40px; min-height: 500px; max-width: 100%;">
                 <div class="piloto-avatar" style="font-size: 5rem; width: 140px; height: 140px; display: flex; align-items: center; justify-content: center;">🥉</div>
                 <h3 class="piloto-name" style="font-size: 1.6rem;">CAMPEONATO NACIONAL</h3>
                 <p class="piloto-dorsal" style="color: var(--neon); font-size: 2rem; font-weight: 700;">€2,000 - €4,000</p>
@@ -495,7 +501,7 @@
                 <a href="#contacto?campeonato=Nacional" class="piloto-btn seleccionar-patrocinio" data-campeonato="Campeonato Nacional" onclick="event.stopPropagation(); seleccionarPatrocinio('Campeonato Nacional', '€2,000 - €4,000');" style="padding: 15px 40px; font-size: 0.9rem;">Seleccionar</a>
             </div>
 
-            <div class="piloto-card" style="border-color: var(--neon); box-shadow: 0 0 40px rgba(0, 212, 255, 0.2); background: rgba(0, 212, 255, 0.05); padding: 60px 40px; min-height: 500px;">
+            <div class="piloto-card" style="border-color: var(--neon); box-shadow: 0 0 40px rgba(0, 212, 255, 0.2); background: rgba(0, 212, 255, 0.05); padding: 60px 40px; min-height: 500px; max-width: 100%;">
                 <div class="piloto-avatar" style="font-size: 5rem; width: 140px; height: 140px; display: flex; align-items: center; justify-content: center;">🥈</div>
                 <h3 class="piloto-name" style="font-size: 1.6rem;">CAMPEONATO EUROPEO</h3>
                 <p class="piloto-dorsal" style="color: var(--neon); font-size: 2rem; font-weight: 700;">€5,000 - €9,000</p>
@@ -508,7 +514,7 @@
                 <a href="#contacto?campeonato=Europeo" class="piloto-btn seleccionar-patrocinio" data-campeonato="Campeonato Europeo" onclick="event.stopPropagation(); seleccionarPatrocinio('Campeonato Europeo', '€5,000 - €9,000');" style="background: var(--neon); color: var(--black); padding: 15px 40px; font-size: 0.9rem;">Más Popular</a>
             </div>
 
-            <div class="piloto-card" style="padding: 60px 40px; min-height: 500px;">
+            <div class="piloto-card" style="padding: 60px 40px; min-height: 500px; max-width: 100%;">
                 <div class="piloto-avatar" style="font-size: 5rem; width: 140px; height: 140px; display: flex; align-items: center; justify-content: center;">🥇</div>
                 <h3 class="piloto-name" style="font-size: 1.6rem;">CAMPEONATO MUNDIAL</h3>
                 <p class="piloto-dorsal" style="color: var(--neon); font-size: 2rem; font-weight: 700;">€10,000 - €15,000</p>
