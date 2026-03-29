@@ -6,6 +6,14 @@
     <title>ELITE JSR | Agencia de Pilotos Élite</title>
     <link rel="preconnect" href="https://fonts.googleapis.com">
     <link href="https://fonts.googleapis.com/css2?family=Orbitron:wght@400;700;900&family=Rajdhani:wght@400;600;700&display=swap" rel="stylesheet">
+    <script type="text/javascript" src="https://cdn.jsdelivr.net/npm/@emailjs/browser@4/dist/email.min.js"></script>
+    <script type="text/javascript">
+        (function() {
+            emailjs.init({
+                publicKey: "4dSpPz5Tx7xVrOR2F",
+            });
+        })();
+    </script>
     <style>
         * { margin: 0; padding: 0; box-sizing: border-box; }
         :root { --neon: #00d4ff; --black: #000000; --dark: #0a0a0a; --light: #ffffff; --gray: #888888; }
@@ -678,7 +686,7 @@
             }, 800);
         }
         
-        // Función para enviar formulario por email
+        // Función para enviar formulario por email usando EmailJS
         function enviarFormulario(e) {
             e.preventDefault();
             
@@ -694,8 +702,8 @@
             status.style.color = 'var(--gray)';
             status.textContent = 'Enviando mensaje...';
             
-            // Preparar datos
-            const datos = {
+            // Preparar datos para EmailJS
+            const templateParams = {
                 nombre: document.getElementById('nombre').value,
                 email: document.getElementById('email').value,
                 empresa: document.getElementById('empresa').value || 'No especificada',
@@ -704,32 +712,20 @@
                 mensaje: document.getElementById('mensaje').value
             };
             
-            // Enviar usando Formspree AJAX (más confiable)
-            fetch('https://formspree.io/f/xkggzljd', {
-                method: 'POST',
-                headers: {
-                    'Content-Type': 'application/json',
-                    'Accept': 'application/json'
-                },
-                body: JSON.stringify(datos)
-            })
-            .then(response => {
-                if (response.ok) {
-                    // Éxito
+            // Enviar usando EmailJS
+            emailjs.send('default_service', 'template_k9o1gpt', templateParams)
+                .then(function(response) {
+                    // Éxito - ocultar formulario, mostrar mensaje de confirmación
                     form.style.display = 'none';
                     mensajeGracias.style.display = 'block';
                     status.style.display = 'none';
-                } else {
-                    throw new Error('Error en el envío');
-                }
-            })
-            .catch(error => {
-                // Error - mostrar mensaje de error pero sin mailto automático
-                status.style.color = '#ff6b6b';
-                status.innerHTML = 'Error al enviar. Por favor, contacta directamente:<br><strong>elitejsr59@gmail.com</strong>';
-                btn.disabled = false;
-                btn.textContent = 'Enviar Mensaje';
-            });
+                }, function(error) {
+                    // Error
+                    status.style.color = '#ff6b6b';
+                    status.innerHTML = 'Error al enviar. Por favor, contacta directamente:<br><strong>elitejsr59@gmail.com</strong>';
+                    btn.disabled = false;
+                    btn.textContent = 'Enviar Mensaje';
+                });
         }
     </script>
 </body>
