@@ -724,27 +724,11 @@
                 }
             })
             .catch(error => {
-                // Error - intentar método alternativo
+                // Error - mostrar mensaje de error pero sin mailto automático
                 status.style.color = '#ff6b6b';
-                status.textContent = 'Error al enviar. Intentando método alternativo...';
-                
-                // Fallback: abrir mailto como último recurso
-                setTimeout(() => {
-                    const subject = encodeURIComponent('Nueva solicitud de patrocinio - ELITE JSR');
-                    const body = encodeURIComponent(
-                        `Nombre: ${datos.nombre}\n` +
-                        `Email: ${datos.email}\n` +
-                        `Empresa: ${datos.empresa}\n` +
-                        `Teléfono: ${datos.telefono}\n` +
-                        `Campeonato: ${datos.campeonato}\n\n` +
-                        `Mensaje:\n${datos.mensaje}`
-                    );
-                    window.location.href = `mailto:elitejsr59@gmail.com?subject=${subject}&body=${body}`;
-                    
-                    form.style.display = 'none';
-                    mensajeGracias.style.display = 'block';
-                    status.style.display = 'none';
-                }, 1500);
+                status.innerHTML = 'Error al enviar. Por favor, contacta directamente:<br><strong>elitejsr59@gmail.com</strong>';
+                btn.disabled = false;
+                btn.textContent = 'Enviar Mensaje';
             });
         }
     </script>
